@@ -59,4 +59,10 @@ export const Content = styled.div`
       }
     }
   }
+
+  footer {
+    border-top: 1px dashed #000;
+    padding-top: 1rem;
+    font-size: 0.625rem;
+  }
 `

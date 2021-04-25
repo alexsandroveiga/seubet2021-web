@@ -101,6 +101,8 @@ export function TicketPrint (): ReactElement {
           <div className="match">
             <div className="teams">
               <span className="home">Múltiplas</span>
+              <span />
+              <span className="away">Sim</span>
             </div>
             <div className="info">
               <p>
@@ -115,6 +117,9 @@ export function TicketPrint (): ReactElement {
             </div>
           </div>
         </div>
+        <footer>
+        Bilhetes nao podem ser cancelados Em caso de duvidas veja as regras completas no site: bolao.brasilsports.org Pagamento de premios em ate 72 horas da ultima partida do bilhete O pagamento do premio so e feito com o comprovante original
+        </footer>
       </Content>
     </Container>
   )
