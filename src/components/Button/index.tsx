@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react'
+import { Loading } from '../Loading'
 
 import { Container } from './styles'
 
@@ -10,7 +11,11 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export function Button ({ children, loading, ...rest }: ButtonProps): ReactElement {
   return (
     <Container type="button" {...rest}>
-      {loading ? 'Carregando...' : children}
+      {loading
+        ? (
+        <Loading style={{ height: '16px' }} size={2} background="transparent" />
+          )
+        : children}
     </Container>
   )
 }

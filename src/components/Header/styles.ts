@@ -6,17 +6,31 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  background: #fff;
+  background: rgba(0, 0, 0, .8);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 
-  > button {
+  .user {
     height: 3rem;
-    background: #f0f0f0;
+    background: rgba(255, 255, 255, .4);
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 1.5rem;
     padding: 0 1rem 0 2px;
     overflow-x: hidden;
+    color: ${props => props.theme.colors.text};
+    transition: background .5s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, .3);
+    }
+
+    a {
+      color: ${props => props.theme.colors.text};
+      text-decoration: none
+    }
 
     > picture {
       width: calc(3rem - 4px);
@@ -55,6 +69,15 @@ export const Container = styled.div`
         font-size: 0.625rem;
         font-weight: 500;
       }
+    }
+
+    > button {
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: ${props => props.theme.colors.primary};
+      margin-left: 0.5rem;
+      cursor: pointer;
     }
   }
 `

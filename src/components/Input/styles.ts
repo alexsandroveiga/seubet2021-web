@@ -53,6 +53,10 @@ export const Container = styled.div<ContainerProps>`
   svg {
     margin-right: 1rem;
     display: block;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   > button {
@@ -78,6 +82,8 @@ export const Error = styled.div`
   display: flex;
   color: #c53030;
   align-items: center;
+  font-size: 0.8rem;
+  font-weight: 500;
 
   svg {
     margin-right: 0.25rem;

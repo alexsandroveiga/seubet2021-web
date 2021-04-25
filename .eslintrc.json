@@ -1,11 +1,19 @@
 {
-  "extends": "standard-with-typescript",
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": [
+    "react-hooks"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
-    "@typescript-eslint/consistent-type-assertions": "off"
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

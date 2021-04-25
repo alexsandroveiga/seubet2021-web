@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, useEffect, useRef, useState, useCallback, ReactElement, Fragment } from 'react'
 import { IconBaseProps } from 'react-icons'
-import { FiAlertCircle, FiEye } from 'react-icons/fi'
+import { FiCheckCircle, FiEye, FiLoader } from 'react-icons/fi'
 import { useField } from '@unform/core'
 
 import { Container, Error } from './styles'
@@ -11,6 +11,8 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>
   toggle?: () => void
   showPassword?: boolean
+  isLoading?: boolean
+  available?: boolean
 }
 
 export function Input ({
@@ -19,6 +21,8 @@ export function Input ({
   icon: Icon,
   toggle,
   showPassword,
+  isLoading,
+  available,
   ...rest
 }: InputProps): ReactElement {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -64,13 +68,17 @@ export function Input ({
           {...rest}
         />
 
+        {isLoading && <FiLoader size={20} />}
+
+        {!isLoading && available && <FiCheckCircle size={20} />}
+
         {toggle && (
           <button onClick={toggle} type="button" className={showPassword ? 'active' : ''}>
             <FiEye size={20} />
           </button>
         )}
       </Container>
-      {error && <Error><FiAlertCircle />{error}</Error>}
+      {error && <Error>{error}</Error>}
     </Fragment>
   )
 }

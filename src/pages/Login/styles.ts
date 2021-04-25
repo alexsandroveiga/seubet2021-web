@@ -15,17 +15,11 @@ export const Content = styled.div`
   width: 100%;
   max-width: 500px;
 
-  .username-input {
-    text-transform: lowercase;
-
-    &::placeholder {
-      text-transform: initial
-    }
-  }
-
   .links {
-    text-align: center;
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
 
     a {
       color: #fff;
@@ -41,23 +35,5 @@ export const Content = styled.div`
     }
   }
 
-  .message {
-    display: flex;
-    color: #fff;
-    align-items: center;
-    font-size: 0.8rem;
-
-    svg {
-      margin-right: 0.25rem;
-      display: block;
-    }
-
-    &.available {
-      color: ${props => props.theme.colors.primary}
-    }
-
-    &.not-available {
-      color: #ff4343;
-    }
-  }
+  
 `

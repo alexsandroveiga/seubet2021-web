@@ -1,11 +1,14 @@
 import { ReactElement } from 'react'
+import { FiLogOut } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import avatar from '../../assets/avatar.webp'
+import { useAuth } from '../../hooks/auth'
 
 import { Container, Hamburger } from './styles'
 
 export function Header (): ReactElement {
-  const user = true
+  const { user, logout } = useAuth()
 
   return (
     <Container>
@@ -16,15 +19,22 @@ export function Header (): ReactElement {
         <em />
       </Hamburger>
       {user && (
-        <button>
+        <div className="user">
           <picture>
-            <img src={avatar} />
+            <Link to="/profile"><img src={avatar} /></Link>
           </picture>
           <div>
-            <h1>Alexsandro</h1>
-            <span>R$ 15,00</span>
+            <Link to="/profile">
+              <h1>{user.name || user.username}</h1>
+            </Link>
+            <Link to="/wallet">
+              <span>R$ 15,00</span>
+            </Link>
           </div>
-        </button>
+          <button onClick={logout}>
+            <FiLogOut />
+          </button>
+        </div>
       )}
     </Container>
   )
