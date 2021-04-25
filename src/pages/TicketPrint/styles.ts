@@ -1,8 +1,25 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background: #f0f0f0;
+  background: #fff;
   min-height: 100vh;
+
+  > button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #000;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      display: block;
+    }
+  }
 `
 
 export const Content = styled.div`
@@ -12,7 +29,7 @@ export const Content = styled.div`
   margin: 0 auto;
   color: #000;
   padding: 1rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   header {
     text-align: center;
@@ -20,14 +37,13 @@ export const Content = styled.div`
   }
 
   .info {
-    font-size: 0.625rem;
     margin: 1rem 0;
   }
 
   .matches {
     header {
       border-bottom: 1px solid #000;
-      font-size: 0.8rem;
+
     }
 
     .match {
@@ -40,9 +56,8 @@ export const Content = styled.div`
       .teams {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
-        font-size: 0.8rem;
-        font-weight: 600;
+        width: 100%;  
+        font-weight: bold;
         margin-bottom: 0.5rem;
 
         .versus {
@@ -63,6 +78,5 @@ export const Content = styled.div`
   footer {
     border-top: 1px dashed #000;
     padding-top: 1rem;
-    font-size: 0.625rem;
   }
 `

@@ -1,10 +1,18 @@
 import { ReactElement } from 'react'
+import { FiPrinter } from 'react-icons/fi'
 
 import { Container, Content } from './styles'
 
 export function TicketPrint (): ReactElement {
+  function handlePrint (): void {
+    window.print()
+  }
+
   return (
     <Container>
+      <button onClick={handlePrint}>
+        <FiPrinter />
+      </button>
       <Content>
         <header>
           <h2>Bilhete SeuBet</h2>
@@ -118,7 +126,7 @@ export function TicketPrint (): ReactElement {
           </div>
         </div>
         <footer>
-        Bilhetes nao podem ser cancelados Em caso de duvidas veja as regras completas no site: bolao.brasilsports.org Pagamento de premios em ate 72 horas da ultima partida do bilhete O pagamento do premio so e feito com o comprovante original
+        Bilhetes não podem ser cancelados. Em caso de dúvidas veja as regras completas em nosso site. Pagamento de prêmios em até 72 horas após o término da ultima partida do bilhete.
         </footer>
       </Content>
     </Container>
