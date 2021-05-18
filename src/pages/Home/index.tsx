@@ -1,15 +1,29 @@
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 
-import { Header } from '../../components/Header'
+import { api } from '../../services/api'
 
-import { Container } from './styles'
+import { Header, Match } from '../../components'
+
+import { Container, Content } from './styles'
 
 export function Home (): ReactElement {
+  const [matches, setMatches] = useState([])
+
+  useEffect(() => {
+    api.get('/fixture')
+      .then(response => setMatches(response.data.fixture))
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <Container>
       <Header />
       <div className="header-image"></div>
-      <h1>Jogos aqui</h1>
+
+      <Content>
+        {matches.map(match => <Match {...match} />)}
+      </Content>
+
     </Container>
   )
 }
