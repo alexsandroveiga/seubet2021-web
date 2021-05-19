@@ -3,7 +3,7 @@ import { rgba, backgrounds } from 'polished'
 
 export const Container = styled.div`
   position: relative;
-  min-height: 100vh;
+  min-height: 200vh;
   padding-top: 4rem;
 
   .header-image {
@@ -21,6 +21,20 @@ export const Container = styled.div`
       bottom: 0rem;
       left: 0;
       ${props => backgrounds(`linear-gradient(${rgba(props.theme.colors.background, 0)}, ${rgba(props.theme.colors.background, 1)})`)}
+    }
+  }
+
+  @media screen and (min-width: 822px) {
+    .header-image {
+      height: 500px;
+      background-position: top center;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .header-image {
+      height: calc(70vh);
+      background-position: top center;
     }
   }
 `
